@@ -1,1 +1,1 @@
-Testing.updateTestAccount();
+Multiple_Accounts.createMultipleAccounts(2);
