@@ -1,6 +1,10 @@
 public class Testing {
     public static void updateTestAccount() {
-        List<List<SObject>> result = [FIND 'Gene' IN ALL FIELDS RETURNING Account(Id, Name), Contact(Id, Name)];
-        System.debug('Result: ' + result);
+        List<Account> accountsToUpdate = [SELECT Id, Name FROM Account WHERE Name = 'Test Account'];
+        for (Account acc : accountsToUpdate) {
+            acc.Name = 'Updated Test Account';      
+        }
+        update accountsToUpdate;
+        System.debug('Accounts to update: ' + accountsToUpdate);
     }
 }
